@@ -482,6 +482,7 @@ impl Runtime {
                 "/=" => self.divide_equal(left, right),
                 "%=" => self.mod_equal(left, right),
                 "?=" => self.rand_equal(left, right),
+                "$=" => self.concatenate(left, right),
                 _ => self.assign_error(),
             }
             break;
@@ -803,6 +804,34 @@ impl Runtime {
             total += to_int(&self.idents[y]);
             self.idents.remove(x);
             self.idents.insert(x.to_string(), total.to_string());
+            break;
+        }
+    }
+
+    fn concatenate(&mut self, x: &str, y: &str) {
+        loop {
+            if self.condition == false {
+                break;
+            }
+
+            if !self.idents.contains_key(x) {
+                self.end_msg = format!(
+                    "On line {}, that identifier is not previously defined.",
+                    self.current_line + 1
+                );
+                self.current_line = self.program.len();
+                break;
+            }
+
+            let mut yv = y.to_string();
+            if self.idents.contains_key(y) {
+                yv = self.idents[y].clone();
+            }
+
+            let f = format!("{} {}", &self.idents[x], &yv);
+
+            self.idents.remove(x);
+            self.idents.insert(x.to_string(), f);
             break;
         }
     }
