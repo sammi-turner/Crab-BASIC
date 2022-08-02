@@ -1,0 +1,6 @@
+cls
+let sum_num = 4
+if 3 < sum_num
+iprint The value is sum_num
+end if
+end
