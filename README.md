@@ -91,13 +91,13 @@ Unlike most dialects of BASIC
 
 ### Variables
 
-All identifiers in the dialect are placeholders for strings that do not start or finish with spaces.
+Using "let" to initialise variables is standard for Crab, like most versions of BASIC.
 
-A subset of those strings also represent integers.
+Although, unlike most dialects of BASIC
 
-There are no floating point types in Crab BASIC.
-
-All variables are initialised with a non-empty value using the "let" keyword.
+- all identifiers are placeholders for strings that do not start or finish with spaces
+- some strings also represent integers
+- there are no floating point types
 
 ```
 # This string is not an integer
