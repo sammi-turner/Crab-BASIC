@@ -7,7 +7,8 @@ An interpreter for the Crab dialect of the BASIC programming language.
 Although [BASIC is an anachronism](https://en.wikipedia.org/wiki/Timeline_of_programming_languages#1960s), it has a long history as a [didactic tool](https://time.com/69316/basic/).
 
 ```
-Once upon a time, knowing how to use a computer was virtually synonymous with knowing how to program one. And the thing that made it possible was a programming language called BASIC.
+Once upon a time, knowing how to use a computer was virtually synonymous with knowing how to
+program one. And the thing that made it possible was a programming language called BASIC.
 
 -Harry McCracken in Time Magazine (2014)
 ```
