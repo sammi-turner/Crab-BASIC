@@ -37,7 +37,7 @@ Unicode emojis are supported.
 
 ### Reserved words
 
-While most of the classic BASICs employ upper case reserved words, this dialect uses 9 reserved words. All lower case.
+While most of the classic BASICs employ upper case reserved words, this dialect uses 11 all lower case reserved words.
 
 ```
 if
@@ -49,6 +49,8 @@ goto
 input
 print
 iprint
+true
+false
 ```
 
 ### Command line arguments
@@ -171,14 +173,14 @@ Examples of the eight conditional operators are shown below.
 #### Identity
 
 ```
-x == y
+x == true
 x == 7
 ```
 
 #### Non-identity
 
 ```
-x != y
+x != true
 x != 7
 ```
 
