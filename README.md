@@ -78,6 +78,10 @@ Unlike most dialects of BASIC
 - the "iprint" command does recognise identifiers and will interpolate strings containing them
 - print and iprint commands with no string literal will add a blank line
 
+### Clear screen
+
+The "cls" command, on its own, clears the console for most terminal emulators. There are some notable exeptions, such as the built in IntelliJ terminal.
+
 ### Variable initialisation
 
 Using "let" to initialise variables is standard for Crab, like most versions of BASIC. Although, unlike most dialects of BASIC
@@ -236,3 +240,7 @@ or
 let main = 100
 goto main
 ```
+
+### End
+
+The "end" statement, on its own, stops the execution of the program.
