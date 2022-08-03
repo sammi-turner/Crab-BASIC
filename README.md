@@ -15,14 +15,13 @@ program one. And the thing that made it possible was a programming language call
 
 As well as being a teaching aid, BASIC interpreters are much simpler to implement than the complex runtimes required for modern scripting languages such as JavaScript, PHP or Python.
 
-
 "Crab" is a reference to the mascot of the Rust Programming Language, which was used to write the first implementation of the dialect.
 
 ## Language features
 
 ### Comments
 
-Crab BASIC uses a single octothorpe symbol in place of the "rem" keyword that is used in most BASIC dialects.
+Crab BASIC uses a single octothorpe symbol in place of the "rem" keyword that if used in most BASIC dialects.
 
 ```
 # This is an example of a code comment
@@ -83,7 +82,7 @@ Unlike most dialects of BASIC
 - the "iprint" command does recognise identifiers and will interpolate strings containing them
 - print and iprint commands with no string literal will add a blank line
 
-<img src="print-iprint.png" width="100%" height="auto" />
+<img src="printing.png" width="100%" height="auto" />
 
 ### Variable initialisation
 
@@ -95,7 +94,7 @@ Although, unlike most dialects of BASIC
 - some strings also represent integers
 - there are no floating point types
 
-<img src="example.png" width="100%" height="auto" />
+<img src="what-is-your-name.png" width="100%" height="auto" />
 
 ### Assignment operators
 
