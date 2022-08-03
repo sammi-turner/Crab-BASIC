@@ -16,7 +16,7 @@ program one. And the thing that made it possible was a programming language call
 As well as being a teaching aid, BASIC interpreters are much simpler to implement than the complex runtimes required for modern scripting languages such as JavaScript, PHP or Python.
 
 
-"Crab" is a reference to the mascot of the Rust Programming Language, which was used to write the first implementation of the Crab BASIC dialect.
+"Crab" is a reference to the mascot of the Rust Programming Language, which was used to write the first implementation of the dialect.
 
 ## Language features
 
