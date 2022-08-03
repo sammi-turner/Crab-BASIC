@@ -95,19 +95,13 @@ Although, unlike most dialects of BASIC
 - some strings also represent integers
 - there are no floating point types
 
-```
-# This string is not an integer
-let name = Mary
-
-# This string is also an integer
-let num = 5
-```
-
 <img src="example.png" width="100%" height="auto" />
 
 ### Assignment operators
 
-Crab BASIC has no concept of nested expressions. Variables are mutated by assignment.
+Crab BASIC has no concept of nested expressions. 
+
+Variables are mutated by assignment, as shown in these examples.
 
 #### Reassigned to
 
