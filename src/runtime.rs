@@ -30,6 +30,9 @@ impl Runtime {
         // Determine program size
         let program_size = self.program.len();
 
+        // Add a blank line in the terminal
+        println!("");
+
         // If there are no subroutine syntax errors, the program runs
         while self.current_line < program_size {
             let n = word_count(&self.program[self.current_line]);
@@ -270,16 +273,7 @@ impl Runtime {
             let s = remove_nth_word(&self.program[self.current_line], 0);
             let n = word_count(&s);
 
-            if n != 3 {
-                self.end_msg = format!(
-                    "On line {}, there is a syntax error.",
-                    self.current_line + 1
-                );
-                self.current_line = self.program.len();
-                break;
-            }
-
-            if nth_word(&s, 1) != "=" {
+            if n < 3 {
                 self.end_msg = format!(
                     "On line {}, there is a syntax error.",
                     self.current_line + 1
@@ -293,6 +287,16 @@ impl Runtime {
                 break;
             }
 
+            let s1 = remove_nth_word(&s, 0);
+            if nth_word(&s1, 0) != "=" {
+                self.end_msg = format!(
+                    "On line {}, there is a syntax error.",
+                    self.current_line + 1
+                );
+                self.current_line = self.program.len();
+                break;
+            }
+
             if self.idents.contains_key(left) {
                 self.end_msg = format!(
                     "On line {}, that identifier is already defined.",
@@ -303,11 +307,11 @@ impl Runtime {
             }
 
             self.idents.remove(left);
-            let right = nth_word(&s, 2);
+            let right = remove_nth_word(&s1, 0);
 
-            if self.idents.contains_key(right) {
+            if self.idents.contains_key(&right) {
                 self.idents
-                    .insert(left.to_string(), self.idents[right].clone());
+                    .insert(left.to_string(), self.idents[&right].clone());
                 break;
             }
 
@@ -461,30 +465,28 @@ impl Runtime {
             let s = self.program[self.current_line].clone();
             let n = word_count(&s);
 
-            if n != 3 {
-                self.end_msg = format!(
-                    "On line {}, there is a syntax error.",
-                    self.current_line + 1
-                );
-                self.current_line = self.program.len();
+            if n > 2 {
+                let name = nth_word(&s, 0);
+                let assign = nth_word(&s, 1);
+
+                let s1 = remove_nth_word(&s, 0);
+                let s2 = remove_nth_word(&s1, 0);
+
+                match assign {
+                    "=" => self.reassign(name, &s2),
+                    "+=" => self.plus_equal(name, &s2),
+                    "-=" => self.minus_equal(name, &s2),
+                    "*=" => self.times_equal(name, &s2),
+                    "/=" => self.divide_equal(name, &s2),
+                    "%=" => self.mod_equal(name, &s2),
+                    "?=" => self.rand_equal(name, &s2),
+                    "$=" => self.concatenate(name, &s2),
+                    _ => self.assign_error(),
+                }
                 break;
             }
 
-            let a = nth_word(&s, 1);
-            let left = nth_word(&s, 0);
-            let right = nth_word(&s, 2);
-
-            match a {
-                "=" => self.reassign(left, right),
-                "+=" => self.plus_equal(left, right),
-                "-=" => self.minus_equal(left, right),
-                "*=" => self.times_equal(left, right),
-                "/=" => self.divide_equal(left, right),
-                "%=" => self.mod_equal(left, right),
-                "?=" => self.rand_equal(left, right),
-                "$=" => self.concatenate(left, right),
-                _ => self.assign_error(),
-            }
+            self.assign_error();
             break;
         }
     }
