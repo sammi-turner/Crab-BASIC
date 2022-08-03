@@ -89,7 +89,7 @@ Unlike most dialects of BASIC
 
 <img src="print-iprint.png" width="100%" height="auto" />
 
-### Variables
+### Variable initialisation
 
 Using "let" to initialise variables is standard for Crab, like most versions of BASIC.
 
@@ -107,6 +107,64 @@ let name = Mary
 let num = 5
 ```
 
-### Re-assignment
+<img src="example.png" width="100%" height="auto" />
 
-In this dialect, all operations are performed by re-assignment.
+### Assignment operators
+
+Crab BASIC has no concept of nested expressions. Variables are mutated by assignment.
+
+#### Reassigned to
+
+```
+x = y
+x = 5
+```
+
+#### Increased by
+
+```
+x += y
+x += 5
+```
+
+#### Reduced by
+
+```
+x -= y
+x -= 5
+```
+
+#### Multiplied by
+
+```
+x *= y
+x *= 5
+```
+
+#### Divided by
+
+```
+x /= y
+x /= 5
+```
+
+#### Modulus assignment
+
+```
+x %= y
+x %= 5
+```
+
+#### Random assignment
+
+```
+x ?= y
+x ?= 5
+```
+
+#### Concatenated to
+
+```
+x $= y
+x $= 5
+```
