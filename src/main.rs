@@ -1,4 +1,6 @@
 mod runtime;
+mod commands;
+mod parse;
 mod utils;
 
 use runtime::Runtime;
