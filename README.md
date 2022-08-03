@@ -20,10 +20,6 @@ As well as being a teaching aid, BASIC interpreters are much simpler to implemen
 
 ## Language features
 
-### No nesting
-
-This dialect has no use for parentheses and no concept of nested expressions.
-
 ### Comments
 
 Crab BASIC uses a single octothorpe symbol in place of the "rem" keyword that if used in most BASIC dialects.
