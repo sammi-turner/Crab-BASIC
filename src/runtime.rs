@@ -54,7 +54,7 @@ impl Runtime {
         if &self.end_msg != "" {
             println!("\n{}\n", &self.end_msg);
         } else {
-            println!("\nOn line {}, the program ends.", self.program.len());
+            println!("\nOn line {}, the program ends.\n", self.program.len());
         }
     }
 
