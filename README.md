@@ -55,9 +55,7 @@ iprint
 
 ### Command line arguments
 
-This implementation of Crab BASIC has no REPL functionality and can only run scripts. 
-
-Scripts can have any file extension.
+Crab BASIC has no REPL functionality and can only run scripts. Scripts can have any file extension.
 
 To run the source file "example.txt", we could enter
 
@@ -84,23 +82,16 @@ Unlike most dialects of BASIC
 
 ### Variable initialisation
 
-Using "let" to initialise variables is standard for Crab, like most versions of BASIC.
-
-Although, unlike most dialects of BASIC
+Using "let" to initialise variables is standard for Crab, like most versions of BASIC. Although, unlike most dialects of BASIC
 
 - all identifiers are placeholders for strings
 - some strings also represent integers
 - there are no floating point types
-
-### Input statements
-
-- require prior initialisation with "let"
+- input statements require prior initialisation with "let"
 
 ### Assignment operators
 
-Crab BASIC has no bracketed expressions or nesting.
-
-Variables are mutated by assignment, as shown in these examples.
+Crab BASIC has no bracketed expressions or nesting. Variables are mutated by assignment, as shown in these examples.
 
 #### Reassigned to
 
