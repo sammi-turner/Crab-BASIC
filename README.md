@@ -82,19 +82,19 @@ Unlike most dialects of BASIC
 - the "iprint" command does recognise identifiers and will interpolate strings containing them
 - print and iprint commands with no string literal will add a blank line
 
-<img src="printing.png" width="100%" height="auto" />
-
 ### Variable initialisation
 
 Using "let" to initialise variables is standard for Crab, like most versions of BASIC.
 
 Although, unlike most dialects of BASIC
 
-- all identifiers are placeholders for strings that do not start or finish with spaces
+- all identifiers are placeholders for strings
 - some strings also represent integers
 - there are no floating point types
 
-<img src="what-is-your-name.png" width="100%" height="auto" />
+### Input statements
+
+- require prior initialisation with "let"
 
 ### Assignment operators
 
