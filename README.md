@@ -22,7 +22,7 @@ As well as being a teaching aid, BASIC interpreters are much simpler to implemen
 
 ### Comments
 
-Crab BASIC uses a single octothorpe symbol in place of the "rem" keyword that if used in most BASIC dialects.
+Crab BASIC uses a single octothorpe symbol in place of the "rem" keyword that is used in most BASIC dialects.
 
 ```
 # This is an example of a code comment
