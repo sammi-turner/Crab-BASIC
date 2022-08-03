@@ -828,7 +828,7 @@ impl Runtime {
                 yv = self.idents[y].clone();
             }
 
-            let f = format!("{} {}", &self.idents[x], &yv);
+            let f = format!("{}{}", &self.idents[x], &yv);
 
             self.idents.remove(x);
             self.idents.insert(x.to_string(), f);
