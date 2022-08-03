@@ -99,7 +99,7 @@ Although, unlike most dialects of BASIC
 
 ### Assignment operators
 
-Crab BASIC has no concept of nested expressions. 
+Crab BASIC has no bracketed expressions or nesting.
 
 Variables are mutated by assignment, as shown in these examples.
 
