@@ -37,7 +37,7 @@ Unicode emojis are supported.
 
 ### Reserved words
 
-While most of the classic BASICs employ upper case reserved words, this dialect uses 11 lower case reserved words.
+While most of the classic BASICs employ upper case reserved words, this dialect uses 9 reserved words. All lower case.
 
 ```
 if
@@ -46,8 +46,6 @@ cls
 let
 end
 goto
-true
-false
 input
 print
 iprint
@@ -91,7 +89,9 @@ Using "let" to initialise variables is standard for Crab, like most versions of 
 
 ### Assignment operators
 
-Crab BASIC has no bracketed expressions or nesting. Variables are mutated by assignment, as shown in these examples.
+Crab BASIC has no bracketed expressions or nesting. Variables are mutated by assignment.
+
+Examples of the eight assignment operators are shown below.
 
 #### Reassigned to
 
@@ -147,4 +147,92 @@ x ?= 5
 ```
 x $= y
 x $= 5
+```
+
+### Conditionals
+
+Crab BASIC does not use the "then" keyword in conditional statements.
+
+Instead, conditonal code blocks are delimited by "if" and "end if" statements, as in the following example.
+
+```
+if x == 3
+print some text output
+print more text output
+end if
+```
+
+Examples of the eight conditional operators are shown below.
+
+#### Identity
+
+```
+x == y
+x == 7
+```
+
+#### Non-identity
+
+```
+x != y
+x != 7
+```
+
+#### Less than
+
+```
+x < y
+x < 7
+```
+
+#### Greater than
+
+```
+x > y
+x > 7
+```
+
+#### Less than or equal to
+
+```
+x <= y
+x <= 7
+```
+
+#### Greater than or equal to
+
+```
+x >= y
+x >= 7
+```
+
+#### Conjunction
+
+```
+x and y
+```
+
+#### Disjunction
+
+```
+x or y
+```
+
+### Branching
+
+Although [Edgar Dijkstra](https://en.wikipedia.org/wiki/Considered_harmful) wasn't a fan, "goto" statements are standard both for the older BASICs, and this dialect as well.
+
+The goto command takes one argument, which should be either an integer, or an identifier representing one.
+
+For example
+
+```
+goto 25
+```
+
+or
+
+```
+let main = 100
+goto main
 ```
