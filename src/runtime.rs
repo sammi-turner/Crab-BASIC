@@ -13,10 +13,6 @@ impl Runtime {
     pub fn run_program(&mut self, f: &str) {
         seed();
 
-        self.idents.clear();
-        self.program.clear();
-        self.end_msg.clear();
-
         let result = read_from_file(&f);
         let r = line_count(&result);
 

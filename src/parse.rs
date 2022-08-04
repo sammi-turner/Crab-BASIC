@@ -17,7 +17,11 @@ impl Runtime {
     pub fn parse_gt(&mut self, x: String, y: String) {
         loop {
             if !is_int(&x) || !is_int(&y) {
-                self.condition = false;
+                self.end_msg = format!(
+                    "On line {}, the comparison is not defined.",
+                    self.current_line + 1
+                );
+                self.current_line = self.program.len();
                 break;
             }
 
@@ -36,7 +40,11 @@ impl Runtime {
     pub fn parse_lt(&mut self, x: String, y: String) {
         loop {
             if !is_int(&x) || !is_int(&y) {
-                self.condition = false;
+                self.end_msg = format!(
+                    "On line {}, the comparison is not defined.",
+                    self.current_line + 1
+                );
+                self.current_line = self.program.len();
                 break;
             }
 
@@ -55,7 +63,11 @@ impl Runtime {
     pub fn parse_gte(&mut self, x: String, y: String) {
         loop {
             if !is_int(&x) || !is_int(&y) {
-                self.condition = false;
+                self.end_msg = format!(
+                    "On line {}, the comparison is not defined.",
+                    self.current_line + 1
+                );
+                self.current_line = self.program.len();
                 break;
             }
 
@@ -74,7 +86,11 @@ impl Runtime {
     pub fn parse_lte(&mut self, x: String, y: String) {
         loop {
             if !is_int(&x) || !is_int(&y) {
-                self.condition = false;
+                self.end_msg = format!(
+                    "On line {}, the comparison is not defined.",
+                    self.current_line + 1
+                );
+                self.current_line = self.program.len();
                 break;
             }
 
@@ -91,20 +107,37 @@ impl Runtime {
     }
 
     pub fn parse_and(&mut self, x: String, y: String) {
-        if x != "true" || y != "true" {
-            self.condition = false;
+        loop {
+            let xb = &x == "true" || &x == "false";
+            let yb = &y == "true" || &x == "false";
+
+            if !xb || !yb {
+                self.end_msg = format!(
+                    "On line {}, the comparison is not defined.",
+                    self.current_line + 1
+                );
+                self.current_line = self.program.len();
+                break;
+            }
+
+            if x != "true" || y != "true" {
+                self.condition = false;
+                break;
+            }
         }
     }
 
     pub fn parse_or(&mut self, x: String, y: String) {
         loop {
-            if x != "true" && x != "false" {
-                self.condition = false;
-                break;
-            }
+            let xb = &x == "true" || &x == "false";
+            let yb = &y == "true" || &x == "false";
 
-            if y != "true" && y != "false" {
-                self.condition = false;
+            if !xb || !yb {
+                self.end_msg = format!(
+                    "On line {}, the comparison is not defined.",
+                    self.current_line + 1
+                );
+                self.current_line = self.program.len();
                 break;
             }
 
