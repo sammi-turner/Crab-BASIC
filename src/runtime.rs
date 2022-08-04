@@ -11,15 +11,12 @@ pub struct Runtime {
 
 impl Runtime {
     pub fn run_program(&mut self, f: &str) {
-        // Clear screen and seed random numbers
         seed();
 
-        // Set default values in Runtime
         self.idents.clear();
         self.program.clear();
         self.end_msg.clear();
 
-        // Read program from file in the program vector
         let result = read_from_file(&f);
         let r = line_count(&result);
 
@@ -27,13 +24,9 @@ impl Runtime {
             self.program.push(nth_line(&result, i).to_string());
         }
 
-        // Determine program size
         let program_size = self.program.len();
-
-        // Add a blank line in the terminal
         println!("");
 
-        // If there are no subroutine syntax errors, the program runs
         while self.current_line < program_size {
             let n = word_count(&self.program[self.current_line]);
             if n > 0 {
