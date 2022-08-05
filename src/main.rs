@@ -13,6 +13,7 @@ fn main() {
         program: Vec::new(),
         end_msg: String::new(),
         current_line: 0,
+        return_line: 0,
         condition: true,
     };
 

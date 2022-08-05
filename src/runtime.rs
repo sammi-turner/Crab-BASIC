@@ -6,6 +6,7 @@ pub struct Runtime {
     pub program: Vec<String>,
     pub end_msg: String,
     pub current_line: usize,
+    pub return_line: usize,
     pub condition: bool,
 }
 
@@ -21,6 +22,7 @@ impl Runtime {
         }
 
         let program_size = self.program.len();
+        self.return_line = program_size.clone();
         println!("");
 
         while self.current_line < program_size {
@@ -34,9 +36,11 @@ impl Runtime {
                     "let" => self.let_cmd(),
                     "end" => self.end_cmd(),
                     "goto" => self.goto_cmd(),
+                    "gosub" => self.gosub_cmd(),
                     "input" => self.input_cmd(),
                     "print" => self.print_cmd(),
                     "iprint" => self.iprint_cmd(),
+                    "return" => self.return_cmd(),
                     _ => self.assign_cmd(),
                 }
             }

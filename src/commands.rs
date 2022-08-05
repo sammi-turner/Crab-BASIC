@@ -195,6 +195,44 @@ impl Runtime {
         }
     }
 
+    pub fn gosub_cmd(&mut self) {
+        loop {
+            if self.condition == false {
+                break;
+            }
+
+            let n = word_count(&self.program[self.current_line]);
+            if n != 2 {
+                self.end_msg = format!(
+                    "On line {}, there is a syntax error.",
+                    self.current_line + 1
+                );
+                self.current_line = self.program.len();
+                break;
+            }
+
+            let s = nth_word(&self.program[self.current_line], 1);
+            if is_int(s) {
+                self.return_line = self.current_line.clone();
+                self.current_line = (to_int(s) - 2) as usize;
+                break;
+            }
+
+            if !self.idents.contains_key(s) {
+                self.end_msg = format!(
+                    "On line {}, that identifier is not defined.",
+                    self.current_line + 1
+                );
+                self.current_line = self.program.len();
+                break;
+            }
+
+            self.return_line = self.current_line.clone();
+            self.current_line = (to_int(&self.idents[s]) - 2) as usize;
+            break;
+        }
+    }
+
     pub fn input_cmd(&mut self) {
         loop {
             if self.condition == false {
@@ -259,6 +297,23 @@ impl Runtime {
 
             output.pop();
             println!("{}", &output);
+            break;
+        }
+    }
+
+    pub fn return_cmd(&mut self) {
+        loop {
+            let s = self.program[self.current_line].as_str();
+            if s == "return" {
+                self.current_line = self.return_line.clone();
+                break;
+            }
+
+            self.end_msg = format!(
+                "On line {}, there is a syntax error.",
+                self.current_line + 1
+            );
+            self.current_line = self.program.len();
             break;
         }
     }
