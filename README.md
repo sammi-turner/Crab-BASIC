@@ -243,6 +243,14 @@ let main = 100
 goto main
 ```
 
+### Subroutines
+
+Unlike most BASICS, this dialect does not have a call stack for subroutines.
+
+Instead, the "gosub" command only tracks the last position where gosub was called.
+
+The "return" keyword will either move program execution to the line after the most recent gosub call, or default to the last line of the program, where no gosub call was made.
+
 ### End
 
-The "end" statement, on its own, stops the execution of the program.
+As with other BASICs, the "end" command in this dialect stops the execution of the program.
