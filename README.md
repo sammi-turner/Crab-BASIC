@@ -15,13 +15,13 @@ program one. And the thing that made it possible was a programming language call
 
 As well as being a teaching aid, BASIC interpreters are much simpler to implement than the complex runtimes required for modern scripting languages such as JavaScript, PHP or Python.
 
-"Crab" is a reference to the mascot of the Rust Programming Language, which was used to write the first implementation of the dialect.
+"Crab" is a reference to the mascot of the Rust Programming Language, which was used to write the first implementation of this BASIC.
 
 ## Language features
 
 ### Comments
 
-Crab BASIC uses a single octothorpe symbol in place of the "rem" keyword that if used in most BASIC dialects.
+Crab BASIC uses a single octothorpe symbol in place of the "rem" keyword that if used in most BASICs.
 
 ```
 # This is an example of a code comment
@@ -37,7 +37,7 @@ Unicode emojis are supported.
 
 ### Reserved words
 
-While most of the classic BASICs employ upper case reserved words, this dialect uses 11 all lower case reserved words.
+While most of the classic BASICs employ upper case reserved words, Crab BASIC uses 11 all lower case reserved words.
 
 ```
 if
@@ -73,7 +73,7 @@ to run the script any directory containing both the binary and the source folder
 
 ### Print and Iprint
 
-Unlike most dialects of BASIC
+Unlike most versions of BASIC
 
 - string literals are not delimited by quotes
 - the "print" command does not recognise identifiers
@@ -86,7 +86,7 @@ The "cls" command, on its own, clears the console for most terminal emulators. T
 
 ### Let
 
-Using "let" to initialise variables is standard for Crab, like most versions of BASIC. Although, unlike most dialects of BASIC
+Using "let" to initialise variables is standard for Crab, like most versions of BASIC. Although, unlike most versions of BASIC
 
 - all identifiers are placeholders for strings
 - some strings also represent integers
@@ -226,7 +226,7 @@ x or y
 
 ### Goto
 
-Although [Edgar Dijkstra](https://en.wikipedia.org/wiki/Considered_harmful) wasn't a fan, "goto" statements are standard both for the older BASICs, and this dialect as well.
+Although [Edgar Dijkstra](https://en.wikipedia.org/wiki/Considered_harmful) wasn't a fan, "goto" statements are standard for most of the older BASIC implementations.
 
 The goto command takes one argument, which should be either an integer, or an identifier representing one.
 
@@ -245,7 +245,7 @@ goto main
 
 ### Subroutines
 
-Gosub and return in this dialect work in a similar fashion to most BASICs.
+Gosub and return work in a similar fashion to most BASICs.
 
 For example, this program
 
@@ -269,4 +269,4 @@ On line 3, the program ends.
 
 ### End
 
-As with other BASICs, the "end" command in this dialect stops the execution of the program.
+As with other BASICs, the "end" command stops the execution of the program.
