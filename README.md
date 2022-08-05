@@ -251,6 +251,19 @@ Instead, the "gosub" command only tracks the last position where gosub was calle
 
 The "return" keyword will either move program execution to the line after the most recent gosub call, or default to the last line of the program, where no gosub call was made.
 
+For example
+
+```
+gosub 37
+```
+
+or
+
+```
+let num = 45
+gosub num
+```
+
 ### End
 
 As with other BASICs, the "end" command in this dialect stops the execution of the program.
