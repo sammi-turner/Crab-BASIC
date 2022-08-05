@@ -80,11 +80,11 @@ Unlike most dialects of BASIC
 - the "iprint" command does recognise identifiers and will interpolate strings containing them
 - print and iprint commands with no string literal will add a blank line
 
-### Clear screen
+### Cls
 
 The "cls" command, on its own, clears the console for most terminal emulators. There are some notable exeptions, such as the built in IntelliJ terminal.
 
-### Variable initialisation
+### Let
 
 Using "let" to initialise variables is standard for Crab, like most versions of BASIC. Although, unlike most dialects of BASIC
 
@@ -224,7 +224,7 @@ x and y
 x or y
 ```
 
-### Branching
+### Goto
 
 Although [Edgar Dijkstra](https://en.wikipedia.org/wiki/Considered_harmful) wasn't a fan, "goto" statements are standard both for the older BASICs, and this dialect as well.
 
@@ -245,23 +245,26 @@ goto main
 
 ### Subroutines
 
-Unlike most BASICS, this dialect does not have a call stack for subroutines.
+Gosub and return in this dialect work in a similar fashion to most BASICs.
 
-Instead, the "gosub" command only tracks the last position where gosub was called.
-
-The "return" keyword will either move program execution to the line after the most recent gosub call, or default to the last line of the program, where no gosub call was made.
-
-For example
+For example, this program
 
 ```
-gosub 37
+gosub 4
+print second line
+end
+
+print first line
+return
 ```
 
-or
+has this output
 
 ```
-let num = 45
-gosub num
+first line
+second line
+
+On line 3, the program ends.
 ```
 
 ### End
