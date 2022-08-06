@@ -22,22 +22,22 @@ impl Runtime {
             let left: String;
             let right: String;
 
-            let word1 = nth_word(&s, 0);
-            if self.idents.contains_key(word1) {
-                left = self.idents[word1].clone();
+            let word0 = nth_word(&s, 0);
+            if self.idents.contains_key(word0) {
+                left = self.idents[word0].clone();
             } else {
-                left = word1.to_string();
+                left = word0.to_string();
             }
 
-            let word3 = nth_word(&s, 2);
-            if self.idents.contains_key(word3) {
-                right = self.idents[word3].clone();
+            let word2 = nth_word(&s, 2);
+            if self.idents.contains_key(word2) {
+                right = self.idents[word2].clone();
             } else {
-                right = word3.to_string();
+                right = word2.to_string();
             }
 
-            let word2 = nth_word(&s, 1);
-            match word2 {
+            let word1 = nth_word(&s, 1);
+            match word1 {
                 "==" => self.parse_equal(left, right),
                 "!=" => self.parse_unequal(left, right),
                 ">" => self.parse_gt(left, right),
