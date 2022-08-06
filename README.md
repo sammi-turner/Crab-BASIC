@@ -17,11 +17,20 @@ As well as being a teaching aid, BASIC interpreters are much simpler to implemen
 
 "Crab" is a reference to the mascot of the Rust Programming Language, which was used to write the first implementation of this BASIC.
 
-## Language features
+### No nested expressions!
+
+Crab is places strict limits on the number of tokens on a single line and does not allow nested expressions.
+
+The motivations for this austere design are as follows.
+
+- Crab is designed as a teaching tool rather than a production language.
+- Shorter lines are faster to parse for the simplest variety of interpreter.
+- Shoter lines are easier to read for humans who may be unfamiliar with programming.
+- A simpler language also allows for an implementation that is more approachable for curious programmers.
 
 ### Comments
 
-Crab BASIC uses a single octothorpe symbol in place of the "rem" keyword that if used in most BASICs.
+Crab uses a single octothorpe symbol in place of the "rem" keyword used in most BASICs.
 
 ```
 # This is an example of a code comment
@@ -276,7 +285,39 @@ second line
 
 On line 3, the program ends.
 ```
+### Loops
+
+Although Crab has no specific keywords for looping, it is still simple to implement looping structures.
+
+For example, the following code
+
+```
+let n = 0
+
+if n < 10
+iprint n
+n += 1
+goto 2
+end if
+```
+
+has the following output
+
+```
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+On line 7, the program ends.
+```
 
 ### End
 
-As with other BASICs, the "end" command stops the execution of the program.
+As with other BASICs, the "end" command on its own stops the execution of the program.
