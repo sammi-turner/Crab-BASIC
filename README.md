@@ -25,7 +25,7 @@ The motivations for this austere design are as follows.
 
 - Crab is designed as a teaching tool rather than a production language.
 - Shorter lines are faster to parse for the simplest variety of interpreter.
-- Shoter lines are easier to read for humans who may be unfamiliar with programming.
+- Shorter lines are easier to read for humans who may be unfamiliar with programming.
 - A simpler language also allows for an implementation that is more approachable for curious programmers.
 
 ### Comments
