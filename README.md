@@ -13,9 +13,29 @@ program one. And the thing that made it possible was a programming language call
 -Harry McCracken in Time Magazine (2014)
 ```
 
+<img src="dartmouth.jpg" width="100%" height="auto" />
+
 As well as being a teaching aid, BASIC interpreters are much simpler to implement than the complex runtimes required for modern scripting languages such as JavaScript, PHP or Python.
 
 "Crab" is a reference to the mascot of the Rust Programming Language, which was used to write the first implementation of this BASIC.
+
+## "God object" implementation
+
+At runtime, this program creates of a single instance of a single God object struct with its associated methods in three separate files.
+
+This design is considered an [anti-pattern](https://en.wikipedia.org/wiki/God_object) in the Object Oriented paradigm.
+
+However, I would argue that for a small language such as Crab, this design is easier to read, easier to implement, and even has a slight edge in terms of performance.
+
+As the Wikipedia article on God objects admits
+
+```
+"Whereas creating a God object is typically considered bad programming practice, this technique is occasionally used for tight programming environments (such as microcontrollers), where the performance increase and centralization of control are more important than maintainability and programming elegance."
+```
+
+<img src="god-object.png" width="100%" height="auto" />
+
+## Peculiar features of Crab
 
 ### No nested expressions!
 
