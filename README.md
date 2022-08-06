@@ -37,7 +37,7 @@ Unicode emojis are supported.
 
 ### Reserved words
 
-Crab BASIC uses 11 reserved words, which are all lower case.
+Crab BASIC uses 13 reserved words, which are all lower case.
 
 ```
 if
@@ -46,9 +46,11 @@ cls
 let
 end
 goto
+gosub
 input
 print
 iprint
+return
 true
 false
 ```
