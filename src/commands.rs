@@ -129,12 +129,7 @@ impl Runtime {
 
     pub fn end_cmd(&mut self) {
         loop {
-            if self.if_condition == false {
-                break;
-            }
-
             let s = self.program[self.current_line].as_str();
-
             if s == "end if" && self.if_condition == false {
                 self.if_condition = true;
                 break;
