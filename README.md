@@ -19,7 +19,7 @@ As well as being a teaching aid, BASIC interpreters are much simpler to implemen
 
 ### No nested expressions!
 
-Crab is places strict limits on the number of tokens on a single line and does not allow nested expressions.
+Crab places strict limits on the number of tokens on a single line and does not allow nested expressions.
 
 The motivations for this austere design are as follows.
 
