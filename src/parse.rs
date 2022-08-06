@@ -4,13 +4,13 @@ use crate::Runtime;
 impl Runtime {
     pub fn parse_equal(&mut self, x: String, y: String) {
         if x != y {
-            self.condition = false;
+            self.if_condition = false;
         }
     }
 
     pub fn parse_unequal(&mut self, x: String, y: String) {
         if x == y {
-            self.condition = false;
+            self.if_condition = false;
         }
     }
 
@@ -29,7 +29,7 @@ impl Runtime {
             let vy = to_int(&y);
 
             if vx <= vy {
-                self.condition = false;
+                self.if_condition = false;
                 break;
             }
 
@@ -52,7 +52,7 @@ impl Runtime {
             let vy = to_int(&y);
 
             if vx >= vy {
-                self.condition = false;
+                self.if_condition = false;
                 break;
             }
 
@@ -75,7 +75,7 @@ impl Runtime {
             let vy = to_int(&y);
 
             if vx < vy {
-                self.condition = false;
+                self.if_condition = false;
                 break;
             }
 
@@ -98,7 +98,7 @@ impl Runtime {
             let vy = to_int(&y);
 
             if vx > vy {
-                self.condition = false;
+                self.if_condition = false;
                 break;
             }
 
@@ -121,7 +121,7 @@ impl Runtime {
             }
 
             if x != "true" || y != "true" {
-                self.condition = false;
+                self.if_condition = false;
                 break;
             }
         }
@@ -142,7 +142,7 @@ impl Runtime {
             }
 
             if x == "false" && y == "false" {
-                self.condition = false;
+                self.if_condition = false;
                 break;
             }
 
@@ -171,7 +171,7 @@ impl Runtime {
 
     pub fn reassign(&mut self, x: &str, y: &str) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -196,7 +196,7 @@ impl Runtime {
 
     pub fn plus_equal(&mut self, x: &str, y: &str) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -245,7 +245,7 @@ impl Runtime {
 
     pub fn minus_equal(&mut self, x: &str, y: &str) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -294,7 +294,7 @@ impl Runtime {
 
     pub fn times_equal(&mut self, x: &str, y: &str) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -343,7 +343,7 @@ impl Runtime {
 
     pub fn divide_equal(&mut self, x: &str, y: &str) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -392,7 +392,7 @@ impl Runtime {
 
     pub fn mod_equal(&mut self, x: &str, y: &str) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -441,7 +441,7 @@ impl Runtime {
 
     pub fn rand_equal(&mut self, x: &str, y: &str) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -490,7 +490,7 @@ impl Runtime {
 
     pub fn concatenate(&mut self, x: &str, y: &str) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 

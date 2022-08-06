@@ -7,7 +7,7 @@ pub struct Runtime {
     pub gosub_stack: Vec<usize>,
     pub end_msg: String,
     pub current_line: usize,
-    pub condition: bool,
+    pub if_condition: bool,
 }
 
 impl Runtime {

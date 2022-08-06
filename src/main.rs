@@ -14,7 +14,7 @@ fn main() {
         gosub_stack: Vec::new(),
         end_msg: String::new(),
         current_line: 0,
-        condition: true,
+        if_condition: true,
     };
 
     let args: Vec<String> = std::env::args().collect();

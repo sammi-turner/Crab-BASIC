@@ -4,7 +4,7 @@ use crate::Runtime;
 impl Runtime {
     pub fn if_cmd(&mut self) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -54,7 +54,7 @@ impl Runtime {
 
     pub fn cls_cmd(&mut self) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -73,7 +73,7 @@ impl Runtime {
 
     pub fn let_cmd(&mut self) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -129,28 +129,28 @@ impl Runtime {
 
     pub fn end_cmd(&mut self) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
             let s = self.program[self.current_line].as_str();
 
-            if s == "end if" && self.condition == false {
-                self.condition = true;
+            if s == "end if" && self.if_condition == false {
+                self.if_condition = true;
                 break;
             }
 
-            if s == "end if" && self.condition == true {
+            if s == "end if" && self.if_condition == true {
                 break;
             }
 
-            if s == "end" && self.condition == true {
+            if s == "end" && self.if_condition == true {
                 self.end_msg = format!("On line {}, the program ends.", self.current_line + 1);
                 self.current_line = self.program.len();
                 break;
             }
 
-            if s == "end" && self.condition == false {
+            if s == "end" && self.if_condition == false {
                 break;
             }
 
@@ -165,7 +165,7 @@ impl Runtime {
 
     pub fn goto_cmd(&mut self) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -201,7 +201,7 @@ impl Runtime {
 
     pub fn gosub_cmd(&mut self) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -239,7 +239,7 @@ impl Runtime {
 
     pub fn input_cmd(&mut self) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -273,7 +273,7 @@ impl Runtime {
 
     pub fn print_cmd(&mut self) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -285,7 +285,7 @@ impl Runtime {
 
     pub fn iprint_cmd(&mut self) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -312,7 +312,7 @@ impl Runtime {
 
     pub fn return_cmd(&mut self) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
@@ -343,7 +343,7 @@ impl Runtime {
 
     pub fn assign_cmd(&mut self) {
         loop {
-            if self.condition == false {
+            if self.if_condition == false {
                 break;
             }
 
