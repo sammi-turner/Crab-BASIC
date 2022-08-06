@@ -129,6 +129,10 @@ impl Runtime {
 
     pub fn end_cmd(&mut self) {
         loop {
+            if self.condition == false {
+                break;
+            }
+
             let s = self.program[self.current_line].as_str();
 
             if s == "end if" && self.condition == false {
@@ -213,7 +217,7 @@ impl Runtime {
 
             let s = nth_word(&self.program[self.current_line], 1);
             if is_int(s) {
-                self.call_stack.push(self.current_line);
+                self.gosub_stack.push(self.current_line);
                 self.current_line = (to_int(s) - 2) as usize;
                 break;
             }
@@ -227,7 +231,7 @@ impl Runtime {
                 break;
             }
 
-            self.call_stack.push(self.current_line);
+            self.gosub_stack.push(self.current_line);
             self.current_line = (to_int(&self.idents[s]) - 2) as usize;
             break;
         }
@@ -268,9 +272,14 @@ impl Runtime {
     }
 
     pub fn print_cmd(&mut self) {
-        if self.condition == true {
+        loop {
+            if self.condition == false {
+                break;
+            }
+
             let s = remove_nth_word(&self.program[self.current_line], 0);
             println!("{}", &s);
+            break;
         }
     }
 
@@ -303,8 +312,12 @@ impl Runtime {
 
     pub fn return_cmd(&mut self) {
         loop {
+            if self.condition == false {
+                break;
+            }
+
             let s = self.program[self.current_line].as_str();
-            let n = self.call_stack.len();
+            let n = self.gosub_stack.len();
 
             if n == 0 {
                 self.end_msg = format!(
@@ -315,8 +328,8 @@ impl Runtime {
             }
 
             if s == "return" {
-                self.current_line = self.call_stack[n - 1];
-                self.call_stack.pop();
+                self.current_line = self.gosub_stack[n - 1];
+                self.gosub_stack.pop();
                 break;
             }
 

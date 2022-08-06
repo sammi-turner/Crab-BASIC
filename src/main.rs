@@ -1,6 +1,6 @@
-mod runtime;
 mod commands;
 mod parse;
+mod runtime;
 mod utils;
 
 use runtime::Runtime;
@@ -11,7 +11,7 @@ fn main() {
     let mut rt = Runtime {
         idents: HashMap::new(),
         program: Vec::new(),
-        call_stack: Vec::new(),
+        gosub_stack: Vec::new(),
         end_msg: String::new(),
         current_line: 0,
         condition: true,

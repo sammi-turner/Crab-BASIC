@@ -4,7 +4,7 @@ use std::collections::HashMap;
 pub struct Runtime {
     pub idents: HashMap<String, String>,
     pub program: Vec<String>,
-    pub call_stack: Vec<usize>,
+    pub gosub_stack: Vec<usize>,
     pub end_msg: String,
     pub current_line: usize,
     pub condition: bool,
