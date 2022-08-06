@@ -25,7 +25,7 @@ The motivations for this austere design are as follows.
 
 - Crab is designed as a teaching tool rather than a production language.
 - Shorter lines are faster to parse for the simplest variety of interpreter.
-- Shorter lines are easier to read for humans who may be unfamiliar with programming.
+- Shoter lines are easier to read for humans who may be unfamiliar with programming.
 - A simpler language also allows for an implementation that is more approachable for curious programmers.
 
 ### Comments
@@ -86,10 +86,10 @@ to run the script any directory containing both the binary and the source folder
 
 Unlike most BASICs, in Crab
 
-- string literals are not delimited by quotes
-- the "print" command does not recognise identifiers
-- the "iprint" command does recognise identifiers and will interpolate strings containing them
-- print and iprint commands with no string literal will add a blank line
+- String literals are not delimited by quotes.
+- The "print" command does not recognise identifiers.
+- The "iprint" command does recognise identifiers and will interpolate strings containing them.
+- Print and iprint commands with no string literal will add a blank line
 
 ### Cls
 
