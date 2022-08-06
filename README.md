@@ -37,7 +37,7 @@ Unicode emojis are supported.
 
 ### Reserved words
 
-While most of the classic BASICs employ upper case reserved words, Crab BASIC uses 11 all lower case reserved words.
+Crab BASIC uses 11 reserved words, which are all lower case.
 
 ```
 if
@@ -55,7 +55,7 @@ false
 
 ### Command line arguments
 
-Crab BASIC has no REPL functionality and can only run scripts. Scripts can have any file extension.
+Crab has no REPL functionality and can only run scripts. Scripts can have any file extension.
 
 To run the source file "example.txt", we could enter
 
@@ -73,7 +73,7 @@ to run the script any directory containing both the binary and the source folder
 
 ### Print and Iprint
 
-Unlike most versions of BASIC
+Unlike most BASICs, in Crab
 
 - string literals are not delimited by quotes
 - the "print" command does not recognise identifiers
@@ -82,11 +82,17 @@ Unlike most versions of BASIC
 
 ### Cls
 
-The "cls" command, on its own, clears the console for most terminal emulators. There are some notable exeptions, such as the built in IntelliJ terminal.
+The cls command, on its own, clears the console for most terminal emulators. 
 
-### Let
+However, there are some notable exeptions, such as the built-in IntelliJ terminal.
 
-Using "let" to initialise variables is standard for Crab, like most versions of BASIC. Although, unlike most versions of BASIC
+### Identifiers
+
+In Crab, all identifiers must begin with a lower case letter.
+
+"Let" commands are used to initialise variables, which is standard for most versions of BASIC.
+
+Although, unlike other BASICs, in Crab
 
 - all identifiers are placeholders for strings
 - some strings also represent integers
@@ -95,7 +101,7 @@ Using "let" to initialise variables is standard for Crab, like most versions of 
 
 ### Assignment operators
 
-Crab BASIC has no bracketed expressions or nesting. Variables are mutated by assignment.
+Crab has no bracketed expressions or nesting. Variables are mutated by assignment.
 
 Examples of the eight assignment operators are shown below.
 
@@ -226,7 +232,7 @@ x or y
 
 ### Goto
 
-Although [Edgar Dijkstra](https://en.wikipedia.org/wiki/Considered_harmful) wasn't a fan, "goto" statements are standard for most of the older BASIC implementations.
+Although [Edgar Dijkstra](https://en.wikipedia.org/wiki/Considered_harmful) wasn't a fan, goto statements are standard for most of the older BASIC implementations.
 
 The goto command takes one argument, which should be either an integer, or an identifier representing one.
 
@@ -245,7 +251,9 @@ goto main
 
 ### Subroutines
 
-Gosub and return work in a similar fashion to most BASICs.
+Gosub and return work in a similar fashion to most BASICs, where each gosub statements pushes the current line onto a call stack before program execution jumps to the line indicated.
+
+When return is called, the last line is popped off the stack and execution returns to that line.
 
 For example, this program
 
