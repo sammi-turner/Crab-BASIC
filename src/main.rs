@@ -11,9 +11,9 @@ fn main() {
     let mut rt = Runtime {
         idents: HashMap::new(),
         program: Vec::new(),
+        call_stack: Vec::new(),
         end_msg: String::new(),
         current_line: 0,
-        return_line: 0,
         condition: true,
     };
 

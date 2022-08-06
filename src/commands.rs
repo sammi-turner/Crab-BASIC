@@ -213,7 +213,7 @@ impl Runtime {
 
             let s = nth_word(&self.program[self.current_line], 1);
             if is_int(s) {
-                self.return_line = self.current_line.clone();
+                self.call_stack.push(self.current_line);
                 self.current_line = (to_int(s) - 2) as usize;
                 break;
             }
@@ -227,7 +227,7 @@ impl Runtime {
                 break;
             }
 
-            self.return_line = self.current_line.clone();
+            self.call_stack.push(self.current_line);
             self.current_line = (to_int(&self.idents[s]) - 2) as usize;
             break;
         }
@@ -304,8 +304,19 @@ impl Runtime {
     pub fn return_cmd(&mut self) {
         loop {
             let s = self.program[self.current_line].as_str();
+            let n = self.call_stack.len();
+
+            if n == 0 {
+                self.end_msg = format!(
+                    "On line {}, there is a return command without a gosub call.",
+                    self.current_line + 1
+                );
+                break;
+            }
+
             if s == "return" {
-                self.current_line = self.return_line.clone();
+                self.current_line = self.call_stack[n - 1];
+                self.call_stack.pop();
                 break;
             }
 
@@ -313,7 +324,6 @@ impl Runtime {
                 "On line {}, there is a syntax error.",
                 self.current_line + 1
             );
-            self.current_line = self.program.len();
             break;
         }
     }

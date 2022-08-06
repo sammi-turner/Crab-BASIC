@@ -4,9 +4,9 @@ use std::collections::HashMap;
 pub struct Runtime {
     pub idents: HashMap<String, String>,
     pub program: Vec<String>,
+    pub call_stack: Vec<usize>,
     pub end_msg: String,
     pub current_line: usize,
-    pub return_line: usize,
     pub condition: bool,
 }
 
@@ -22,7 +22,6 @@ impl Runtime {
         }
 
         let program_size = self.program.len();
-        self.return_line = program_size.clone();
         println!("");
 
         while self.current_line < program_size {
