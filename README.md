@@ -30,7 +30,10 @@ However, I would argue that for a small language such as Crab, this design is ea
 As the Wikipedia article on God objects admits
 
 ```
-"Whereas creating a God object is typically considered bad programming practice, this technique is occasionally used for tight programming environments (such as microcontrollers), where the performance increase and centralization of control are more important than maintainability and programming elegance."
+"Whereas creating a God object is typically considered bad programming practice, this technique
+is occasionally used for tight programming environments (such as microcontrollers), where the
+performance increase and centralization of control are more important than maintainability and
+programming elegance."
 ```
 
 <img src="god-object.png" width="100%" height="auto" />
