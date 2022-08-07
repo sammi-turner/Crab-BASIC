@@ -103,7 +103,7 @@ from the rust project root folder or
 ./crab_basic example.txt
 ```
 
-to run the script any directory containing both the binary and the source folder.
+to run the script any directory containing both the binary and the source file.
 
 ### Print and Iprint
 
