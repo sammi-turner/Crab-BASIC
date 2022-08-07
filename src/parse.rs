@@ -2,19 +2,19 @@ use crate::utils::*;
 use crate::Runtime;
 
 impl Runtime {
-    pub fn parse_equal(&mut self, x: String, y: String) {
+    pub fn parse_equal(&mut self, x: &str, y: &str) {
         if x != y {
             self.if_condition = false;
         }
     }
 
-    pub fn parse_unequal(&mut self, x: String, y: String) {
+    pub fn parse_unequal(&mut self, x: &str, y: &str) {
         if x == y {
             self.if_condition = false;
         }
     }
 
-    pub fn parse_gt(&mut self, x: String, y: String) {
+    pub fn parse_gt(&mut self, x: &str, y: &str) {
         loop {
             if !is_int(&x) || !is_int(&y) {
                 self.end_msg = format!(
@@ -37,7 +37,7 @@ impl Runtime {
         }
     }
 
-    pub fn parse_lt(&mut self, x: String, y: String) {
+    pub fn parse_lt(&mut self, x: &str, y: &str) {
         loop {
             if !is_int(&x) || !is_int(&y) {
                 self.end_msg = format!(
@@ -60,7 +60,7 @@ impl Runtime {
         }
     }
 
-    pub fn parse_gte(&mut self, x: String, y: String) {
+    pub fn parse_gte(&mut self, x: &str, y: &str) {
         loop {
             if !is_int(&x) || !is_int(&y) {
                 self.end_msg = format!(
@@ -83,7 +83,7 @@ impl Runtime {
         }
     }
 
-    pub fn parse_lte(&mut self, x: String, y: String) {
+    pub fn parse_lte(&mut self, x: &str, y: &str) {
         loop {
             if !is_int(&x) || !is_int(&y) {
                 self.end_msg = format!(
@@ -106,10 +106,10 @@ impl Runtime {
         }
     }
 
-    pub fn parse_and(&mut self, x: String, y: String) {
+    pub fn parse_and(&mut self, x: &str, y: &str) {
         loop {
-            let xb = &x == "true" || &x == "false";
-            let yb = &y == "true" || &x == "false";
+            let xb = x == "true" || x == "false";
+            let yb = y == "true" || x == "false";
 
             if !xb || !yb {
                 self.end_msg = format!(
@@ -127,10 +127,10 @@ impl Runtime {
         }
     }
 
-    pub fn parse_or(&mut self, x: String, y: String) {
+    pub fn parse_or(&mut self, x: &str, y: &str) {
         loop {
-            let xb = &x == "true" || &x == "false";
-            let yb = &y == "true" || &x == "false";
+            let xb = x == "true" || x == "false";
+            let yb = y == "true" || x == "false";
 
             if !xb || !yb {
                 self.end_msg = format!(

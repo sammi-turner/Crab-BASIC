@@ -38,14 +38,14 @@ impl Runtime {
 
             let word1 = nth_word(&s, 1);
             match word1.as_str() {
-                "==" => self.parse_equal(left, right),
-                "!=" => self.parse_unequal(left, right),
-                ">" => self.parse_gt(left, right),
-                "<" => self.parse_lt(left, right),
-                ">=" => self.parse_gte(left, right),
-                "<=" => self.parse_lte(left, right),
-                "and" => self.parse_and(left, right),
-                "or" => self.parse_or(left, right),
+                "==" => self.parse_equal(&left, &right),
+                "!=" => self.parse_unequal(&left, &right),
+                ">" => self.parse_gt(&left, &right),
+                "<" => self.parse_lt(&left, &right),
+                ">=" => self.parse_gte(&left, &right),
+                "<=" => self.parse_lte(&left, &right),
+                "and" => self.parse_and(&left, &right),
+                "or" => self.parse_or(&left, &right),
                 _ => self.operator_error(),
             }
             break;
