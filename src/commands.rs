@@ -23,21 +23,21 @@ impl Runtime {
             let right: String;
 
             let word0 = nth_word(&s, 0);
-            if self.idents.contains_key(word0) {
-                left = self.idents[word0].clone();
+            if self.idents.contains_key(&word0) {
+                left = self.idents[&word0].clone();
             } else {
                 left = word0.to_string();
             }
 
             let word2 = nth_word(&s, 2);
-            if self.idents.contains_key(word2) {
-                right = self.idents[word2].clone();
+            if self.idents.contains_key(&word2) {
+                right = self.idents[&word2].clone();
             } else {
                 right = word2.to_string();
             }
 
             let word1 = nth_word(&s, 1);
-            match word1 {
+            match word1.as_str() {
                 "==" => self.parse_equal(left, right),
                 "!=" => self.parse_unequal(left, right),
                 ">" => self.parse_gt(left, right),
@@ -90,7 +90,7 @@ impl Runtime {
             }
 
             let left = nth_word(&s, 0);
-            if !self.valid_name(left) {
+            if !self.valid_name(&left) {
                 break;
             }
 
@@ -104,7 +104,7 @@ impl Runtime {
                 break;
             }
 
-            if self.idents.contains_key(left) {
+            if self.idents.contains_key(&left) {
                 self.end_msg = format!(
                     "On line {}, that identifier is already defined.",
                     self.current_line + 1
@@ -113,7 +113,7 @@ impl Runtime {
                 break;
             }
 
-            self.idents.remove(left);
+            self.idents.remove(&left);
             let right = remove_nth_word(&s1, 0);
 
             if self.idents.contains_key(&right) {
@@ -175,12 +175,12 @@ impl Runtime {
             }
 
             let s = nth_word(&self.program[self.current_line], 1);
-            if is_int(s) {
-                self.current_line = (to_int(s) - 2) as usize;
+            if is_int(&s) {
+                self.current_line = (to_int(&s) - 2) as usize;
                 break;
             }
 
-            if !self.idents.contains_key(s) {
+            if !self.idents.contains_key(&s) {
                 self.end_msg = format!(
                     "On line {}, that identifier is not defined.",
                     self.current_line + 1
@@ -189,7 +189,7 @@ impl Runtime {
                 break;
             }
 
-            self.current_line = (to_int(&self.idents[s]) - 2) as usize;
+            self.current_line = (to_int(&self.idents[&s]) - 2) as usize;
             break;
         }
     }
@@ -211,13 +211,13 @@ impl Runtime {
             }
 
             let s = nth_word(&self.program[self.current_line], 1);
-            if is_int(s) {
+            if is_int(&s) {
                 self.gosub_stack.push(self.current_line);
-                self.current_line = (to_int(s) - 2) as usize;
+                self.current_line = (to_int(&s) - 2) as usize;
                 break;
             }
 
-            if !self.idents.contains_key(s) {
+            if !self.idents.contains_key(&s) {
                 self.end_msg = format!(
                     "On line {}, that identifier is not defined.",
                     self.current_line + 1
@@ -227,7 +227,7 @@ impl Runtime {
             }
 
             self.gosub_stack.push(self.current_line);
-            self.current_line = (to_int(&self.idents[s]) - 2) as usize;
+            self.current_line = (to_int(&self.idents[&s]) - 2) as usize;
             break;
         }
     }
@@ -290,11 +290,11 @@ impl Runtime {
 
             for i in 0..n {
                 let word = nth_word(&s, i);
-                if self.idents.contains_key(word) {
-                    output.push_str(&self.idents[word]);
+                if self.idents.contains_key(&word) {
+                    output.push_str(&self.idents[&word]);
                     output.push(' ');
                 } else {
-                    output.push_str(word);
+                    output.push_str(&word);
                     output.push(' ');
                 }
             }
@@ -352,15 +352,15 @@ impl Runtime {
                 let s1 = remove_nth_word(&s, 0);
                 let s2 = remove_nth_word(&s1, 0);
 
-                match assign {
-                    "=" => self.reassign(name, &s2),
-                    "+=" => self.plus_equal(name, &s2),
-                    "-=" => self.minus_equal(name, &s2),
-                    "*=" => self.times_equal(name, &s2),
-                    "/=" => self.divide_equal(name, &s2),
-                    "%=" => self.mod_equal(name, &s2),
-                    "?=" => self.rand_equal(name, &s2),
-                    "$=" => self.concatenate(name, &s2),
+                match assign.as_str() {
+                    "=" => self.reassign(&name, &s2),
+                    "+=" => self.plus_equal(&name, &s2),
+                    "-=" => self.minus_equal(&name, &s2),
+                    "*=" => self.times_equal(&name, &s2),
+                    "/=" => self.divide_equal(&name, &s2),
+                    "%=" => self.mod_equal(&name, &s2),
+                    "?=" => self.rand_equal(&name, &s2),
+                    "$=" => self.concatenate(&name, &s2),
                     _ => self.assign_error(),
                 }
                 break;

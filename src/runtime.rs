@@ -28,7 +28,7 @@ impl Runtime {
             let n = word_count(&self.program[self.current_line]);
             if n > 0 {
                 let first = nth_word(&self.program[self.current_line], 0);
-                match first {
+                match first.as_str() {
                     "#" => (),
                     "if" => self.if_cmd(),
                     "cls" => self.cls_cmd(),

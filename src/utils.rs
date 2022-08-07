@@ -113,9 +113,9 @@ pub fn line_count(x: &str) -> usize {
 }
 
 // Returns the nth word (zero indexed) from a slice.
-pub fn nth_word(x: &str, y: usize) -> &str {
+pub fn nth_word(x: &str, y: usize) -> String {
     if x == "" || y >= word_count(x) {
-        return "";
+        return "".to_string();
     }
     let word_vec = x.split(" ");
     let mut result = "";
@@ -126,13 +126,13 @@ pub fn nth_word(x: &str, y: usize) -> &str {
         }
         count += 1;
     }
-    return result;
+    return result.to_string();
 }
 
 // Returns the nth line (zero indexed) from a slice.
-pub fn nth_line(x: &str, y: usize) -> &str {
+pub fn nth_line(x: &str, y: usize) -> String {
     if x == "" || y >= line_count(x) {
-        return "";
+        return "".to_string();
     }
     let line_vec = x.split("\n");
     let mut result = "";
@@ -143,7 +143,7 @@ pub fn nth_line(x: &str, y: usize) -> &str {
         }
         count += 1;
     }
-    return result;
+    return result.to_string();
 }
 
 // Removes the nth word (zero indexed) from a slice and returns it as a string.
