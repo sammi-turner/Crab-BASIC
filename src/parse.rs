@@ -166,7 +166,7 @@ impl Runtime {
             "iprint",
         ];
         let is_reserved = reserved.contains(&x);
-        return lower && !is_reserved;
+        lower && !is_reserved
     }
 
     pub fn reassign(&mut self, x: &str, y: &str) {

@@ -126,7 +126,7 @@ pub fn nth_word(x: &str, y: usize) -> String {
         }
         count += 1;
     }
-    return result.to_string();
+    result.to_string()
 }
 
 // Returns the nth line (zero indexed) from a slice.
@@ -143,7 +143,7 @@ pub fn nth_line(x: &str, y: usize) -> String {
         }
         count += 1;
     }
-    return result.to_string();
+    result.to_string()
 }
 
 // Removes the nth word (zero indexed) from a slice and returns it as a string.
@@ -165,12 +165,12 @@ pub fn remove_nth_word(x: &str, y: usize) -> String {
     }
 
     let _ = result.pop();
-    return result;
+    result
 }
 
 // Returns true if the file path exists.
 pub fn file_exists(path: &str) -> bool {
-    return std::fs::metadata(path).is_ok();
+    std::fs::metadata(path).is_ok()
 }
 
 // Reads from a file.
@@ -178,5 +178,5 @@ pub fn read_from_file(path: &str) -> String {
     let mut f = std::fs::File::open(path).unwrap();
     let mut buffer = String::new();
     f.read_to_string(&mut buffer).unwrap();
-    return buffer;
+    buffer
 }
