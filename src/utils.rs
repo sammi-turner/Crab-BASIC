@@ -29,61 +29,22 @@ pub fn seed() {
 
 // Generates a pseudo-random number between x and y.
 pub fn pseudo(x: i32, y: i32) -> i32 {
-    return rand::thread_rng().gen_range(x..y + 1);
+    rand::thread_rng().gen_range(x..y + 1)
 }
 
 // Returns the nth char (zero indexed) from a slice.
 pub fn nth_char(x: &str, n: usize) -> char {
-    return x.chars().nth(n).unwrap();
-}
-
-// Checks if a slice consists only of digits.
-pub fn is_digits(x: &str) -> bool {
-    return x.chars().all(char::is_numeric);
-}
-
-// Checks if a slice represents a positive integer.
-pub fn is_pos_int(x: &str) -> bool {
-    if !is_digits(x) {
-        return false;
-    }
-    if nth_char(x, 0) == '0' {
-        return false;
-    }
-    return true;
-}
-
-// Checks if a slice represents a negative integer.
-pub fn is_neg_int(x: &str) -> bool {
-    if nth_char(x, 0) != '-' {
-        return false;
-    }
-    if nth_char(x, 1) == '0' {
-        return false;
-    }
-    if !nth_char(x, 1).is_ascii_digit() {
-        return false;
-    }
-
-    let mut y = x.to_string();
-    let _ = &mut y.remove(0);
-    let _ = &mut y.remove(0);
-
-    let z = y.as_str();
-    if !is_digits(z) {
-        return false;
-    }
-    return true;
+    x.chars().nth(n).unwrap()
 }
 
 // Checks if a slice represents an integer.
 pub fn is_int(x: &str) -> bool {
-    return is_pos_int(x) || x == "0" || is_neg_int(x);
+    x.parse::<i32>().is_ok()
 }
 
 // Converts a slice to an i32 integer.
 pub fn to_int(x: &str) -> i32 {
-    return x.parse::<i32>().unwrap();
+    x.parse::<i32>().unwrap()
 }
 
 // Counts the number of words in a slice.
@@ -96,7 +57,7 @@ pub fn word_count(x: &str) -> usize {
     for _ in word_vec {
         count += 1;
     }
-    return count;
+    count
 }
 
 // Counts the number of lines in a slice.
@@ -109,7 +70,7 @@ pub fn line_count(x: &str) -> usize {
     for _ in word_vec {
         count += 1;
     }
-    return count;
+    count
 }
 
 // Returns the nth word (zero indexed) from a slice.
