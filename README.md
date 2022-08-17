@@ -21,7 +21,7 @@ As well as being a teaching aid, BASIC interpreters are much simpler to implemen
 
 ## "God object" implementation
 
-At runtime, this program creates a single instance of a single God object struct with its associated methods in three separate files.
+At runtime, this program creates a single instance of a single Runtime struct with its associated methods in three separate files.
 
 This design is considered an [anti-pattern](https://en.wikipedia.org/wiki/God_object) in the Object Oriented paradigm.
 
