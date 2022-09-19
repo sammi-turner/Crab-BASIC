@@ -97,13 +97,13 @@ To run the source file "example.txt", we could enter
 cargo run example.txt
 ```
 
-from the rust project root folder or
+from the rust project root folder or enter
 
 ```
 ./crab_basic example.txt
 ```
 
-to run the script any directory containing both the binary and the source file.
+to run the script from any directory containing both the crab_basic binary and the source file.
 
 ### Print and Iprint
 
